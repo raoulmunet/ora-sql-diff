@@ -1,0 +1,26 @@
+[build-system]
+requires=["setuptools>=68"]
+build-backend="setuptools.build_meta"
+
+[project]
+name="ora-sql-diff"
+version="0.1.0"
+description="Structural diff for Oracle SQL."
+readme="README.md"
+requires-python=">=3.10"
+license={text="MIT"}
+authors=[{name="Raoul Munet"}]
+dependencies=["ora-core @ git+https://github.com/raoulmunet/ora-core.git"]
+
+[project.optional-dependencies]
+dev=["pytest>=8"]
+
+[project.scripts]
+ora-sql-diff="ora_sql_diff.cli:main"
+
+[tool.setuptools.packages.find]
+where=["src"]
+
+[tool.pytest.ini_options]
+pythonpath=["src"]
+testpaths=["tests"]
